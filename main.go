@@ -24,19 +24,19 @@ func main() {
 		fmt.Printf("init settings failed, err %v\n", err)
 	}
 
-	if err := logger.Init(); err != nil {
+	if err := logger.Init(settings.Conf.LogConfig); err != nil {
 		fmt.Printf("init logger failed, err %v\n", err)
 	}
 	// NOTE: force to  write memory in cache to disk
 	defer zap.L().Sync()
 	zap.L().Debug("logger init success!")
 
-	if err := mysql.Init(); err != nil {
+	if err := mysql.Init(settings.Conf.MySQLConfig); err != nil {
 		fmt.Printf("init mysql failed, err %v\n", err)
 	}
 	defer mysql.Close()
 
-	if err := redis.Init(); err != nil {
+	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
 		fmt.Printf("init redis failed, err %v\n", err)
 	}
 	defer redis.Close()

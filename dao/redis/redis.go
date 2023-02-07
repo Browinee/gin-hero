@@ -2,6 +2,7 @@ package redis
 
 import (
 	"fmt"
+	"master-gin/settings"
 
 	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
@@ -9,7 +10,7 @@ import (
 
 var rdb *redis.Client
 
-func Init() (err error) {
+func Init(cfg *settings.RedisConfig) (err error) {
 	rdb = redis.NewClient(&redis.Options{
 		Addr:     fmt.Sprintf("%s:%d", viper.GetString("redis.host"), viper.GetInt("redis.Port")),
 		Password: viper.GetString("redis.password"),
