@@ -7,7 +7,8 @@ import (
 	"master-gin/dao/mysql"
 	"master-gin/dao/redis"
 	"master-gin/logger"
-	"master-gin/routes"
+	"master-gin/pkg/snowflake"
+	"master-gin/router"
 	"master-gin/settings"
 	"net/http"
 	"os"
@@ -41,7 +42,12 @@ func main() {
 	}
 	defer redis.Close()
 
-	r := routes.Setup()
+	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
+		fmt.Printf("init snowflake failed, err:%v\n", err)
+		return
+	}
+
+	r := router.Setup()
 	/**
 	*	graceful shutdown
 	 */
