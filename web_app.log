@@ -5,3 +5,76 @@
 {"level":"INFO","time":"2023-02-07T15:17:06.445+0800","caller":"logger/logger.go:63","msg":"/favicon.ico","status":404,"method":"GET","path":"/favicon.ico","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36","errors":"","cost":0.000000667}
 {"level":"INFO","time":"2023-02-07T15:18:06.029+0800","caller":"master-gin/main.go:67","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-02-07T15:18:06.030+0800","caller":"master-gin/main.go:74","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T10:57:57.613+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T10:58:29.013+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:01:02.700+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:01:43.973+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:01:51.783+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:02:44.066+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:02:47.660+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:04:33.244+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:05:52.877+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:06:08.825+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:10:19.122+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:11:24.420+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"DEBUG","time":"2023-02-08T11:12:05.995+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-08T11:15:23.290+0800","caller":"master-gin/main.go:73","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T11:15:23.291+0800","caller":"master-gin/main.go:80","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T11:15:31.816+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T11:15:35.575+0800","caller":"controllers/user.go:14","msg":"Signup with invalid param","error":"json: Unmarshal(nil *models.ParamSigUup)"}
+{"level":"INFO","time":"2023-02-08T11:15:35.575+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000190125}
+{"level":"INFO","time":"2023-02-08T11:16:32.239+0800","caller":"master-gin/main.go:73","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T11:16:32.241+0800","caller":"master-gin/main.go:80","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T11:16:48.308+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-08T11:16:50.599+0800","caller":"logger/logger.go:63","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0003505}
+{"level":"INFO","time":"2023-02-08T13:03:08.075+0800","caller":"master-gin/main.go:73","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:03:08.076+0800","caller":"master-gin/main.go:80","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:03:12.615+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-08T13:03:23.353+0800","caller":"logger/logger.go:63","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000449459}
+{"level":"INFO","time":"2023-02-08T13:04:14.643+0800","caller":"master-gin/main.go:73","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:04:14.643+0800","caller":"master-gin/main.go:80","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:04:16.279+0800","caller":"master-gin/main.go:33","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:04:20.330+0800","caller":"controllers/user.go:16","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.RepPassword' Error:Field validation for 'RepPassword' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:04:20.330+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000487417}
+{"level":"INFO","time":"2023-02-08T13:04:36.831+0800","caller":"logger/logger.go:63","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000112417}
+{"level":"INFO","time":"2023-02-08T13:12:22.272+0800","caller":"master-gin/main.go:73","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:12:22.272+0800","caller":"master-gin/main.go:80","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:12:24.174+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:12:28.771+0800","caller":"controllers/user.go:16","msg":"Signup with invalid param","error":"invalid character '/' looking for beginning of object key string"}
+{"level":"INFO","time":"2023-02-08T13:12:28.771+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000218459}
+{"level":"ERROR","time":"2023-02-08T13:12:34.021+0800","caller":"controllers/user.go:16","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.RepPassword' Error:Field validation for 'RepPassword' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:12:34.021+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000381958}
+{"level":"INFO","time":"2023-02-08T13:16:34.748+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:16:34.750+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:16:36.588+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:16:43.246+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.RepPassword' Error:Field validation for 'RepPassword' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:16:43.246+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.001110834}
+{"level":"ERROR","time":"2023-02-08T13:19:46.661+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.RepPassword' Error:Field validation for 'RepPassword' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:19:46.661+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.00076075}
+{"level":"INFO","time":"2023-02-08T13:19:47.841+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:19:47.841+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:19:49.551+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:19:52.506+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:19:52.506+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000387667}
+{"level":"ERROR","time":"2023-02-08T13:19:55.129+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-08T13:19:55.129+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000310083}
+{"level":"INFO","time":"2023-02-08T13:20:54.313+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:20:54.313+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:21:34.670+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:21:38.672+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-02-08T13:21:38.672+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000544625}
+{"level":"INFO","time":"2023-02-08T13:23:08.811+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:23:08.813+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:23:10.574+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-08T13:23:12.445+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-02-08T13:23:12.446+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000453833}
+{"level":"ERROR","time":"2023-02-08T13:23:15.210+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-02-08T13:23:15.210+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000548916}
+{"level":"ERROR","time":"2023-02-08T13:23:26.112+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-02-08T13:23:26.113+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.00038325}
+{"level":"INFO","time":"2023-02-08T13:23:37.622+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-08T13:23:37.623+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-08T13:23:39.241+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-08T13:23:42.817+0800","caller":"logger/logger.go:63","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000373708}
+{"level":"ERROR","time":"2023-02-08T13:23:45.902+0800","caller":"controllers/user.go:17","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-02-08T13:23:45.903+0800","caller":"logger/logger.go:63","msg":"/signup","status":401,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000302584}
