@@ -14,8 +14,8 @@ type AppConfig struct {
 	Mode         string `mapstructure:"mode"`
 	Version      string `mapstructure:"version"`
 	Port         int    `mapstructure:"port"`
-	StartTime    string `mapstructure:start_time`
-	MachineID    int64  `mapstructure:machine_id`
+	StartTime    string `mapstructure:"start_time"`
+	MachineID    int64  `mapstructure:"machine_id"`
 	*LogConfig   `mapstructure:"log"`
 	*MySQLConfig `mapstructure:"mysql"`
 	*RedisConfig `mapstructure:"redis"`
@@ -48,8 +48,10 @@ type RedisConfig struct {
 }
 
 func Init() (err error) {
-	viper.SetConfigFile("config.yml")
-	viper.AddConfigPath(".")
+	// viper.SetConfigFile("config.yml")
+	// viper.AddConfigPath(".")
+	viper.SetConfigFile("./config.yaml")
+
 	err = viper.ReadInConfig()
 	if err != nil {
 		fmt.Printf("viper.ReadInConfig faled, err:%v\n", err)
