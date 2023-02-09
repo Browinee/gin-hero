@@ -27,7 +27,7 @@ func main() {
 		fmt.Printf("init settings failed, err %v\n", err)
 	}
 
-	if err := logger.Init(settings.Conf.LogConfig); err != nil {
+	if err := logger.Init(settings.Conf.LogConfig, settings.Conf.Mode); err != nil {
 		fmt.Printf("init logger failed, err %v\n", err)
 	}
 	// NOTE: force to  write memory in cache to disk
