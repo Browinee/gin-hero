@@ -24,6 +24,7 @@ func SignUpHandler(c *gin.Context) {
 			})
 			return
 		}
+
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"msg": removeTopStruct(errs.Translate(trans)),
 		})
@@ -31,7 +32,13 @@ func SignUpHandler(c *gin.Context) {
 		return
 	}
 
-	service.SignUp(p)
+	if err := service.SignUp(p); err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{
+			"msg": "Register failed",
+			"err": err.Error(),
+		})
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{
 		"msg": "success.",
 	})
