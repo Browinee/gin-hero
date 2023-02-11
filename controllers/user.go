@@ -19,29 +19,20 @@ func SignUpHandler(c *gin.Context) {
 		// NOTE: check err is validator error
 		errs, ok := err.(validator.ValidationErrors)
 		if !ok {
-			c.JSON(http.StatusUnauthorized, gin.H{
-				"msg": "Incorrect username or password.",
-			})
+			ResponseError(c, http.StatusUnauthorized, CodeInvalidParam)
 			return
 		}
-
-		c.JSON(http.StatusUnauthorized, gin.H{
-			"msg": removeTopStruct(errs.Translate(trans)),
-		})
-
+		ResponseErrorWithMsg(c, http.StatusUnauthorized, CodeInvalidParam, removeTopStruct(errs.Translate(trans)))
 		return
 	}
 
 	if err := service.SignUp(p); err != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{
-			"msg": "Register failed",
-			"err": err.Error(),
-		})
+		zap.L().Error("service.signup failed", zap.Error(err))
+		ResponseErrorWithMsg(c, http.StatusUnauthorized, CodeInvalidParam, "Register failed")
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"msg": "success.",
-	})
+
+	ResponseSuccess(c, nil)
 }
 
 func LoginHandler(c *gin.Context) {

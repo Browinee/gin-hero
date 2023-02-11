@@ -11,6 +11,11 @@ import (
 	"go.uber.org/zap"
 )
 
+var (
+	ErrorUserExist                   = errors.New("user existed")
+	ErrorIncorrectUsernameOrPassword = errors.New("Incorrect username or password")
+)
+
 func CheckUserExist(username string) (err error) {
 	sqlStr := `select count(user_id) from user where username= ?`
 	var count int
@@ -19,7 +24,7 @@ func CheckUserExist(username string) (err error) {
 	}
 	fmt.Println("count", count)
 	if count > 0 {
-		return errors.New("user existed")
+		return ErrorUserExist
 	}
 	return
 }
@@ -47,7 +52,8 @@ func Login(user *models.User) (err error) {
 	err = db.Get(userFromDB, sqlStr, user.Username)
 	if err == sql.ErrNoRows {
 		zap.L().Error("user is not existed. ", zap.Error(err))
-		return errors.New("Incorrect username or password")
+		return ErrorIncorrectUsernameOrPassword
+
 	}
 	if err != nil {
 		// NOTE: database got err when searching
@@ -56,7 +62,8 @@ func Login(user *models.User) (err error) {
 	passwordFromUser := user.Password
 	password := encryptPassword(passwordFromUser)
 	if password != userFromDB.Password {
-		return errors.New("Incorrect username or password")
+		zap.L().Error("incorrect password", zap.Error(err))
+		return ErrorIncorrectUsernameOrPassword
 	}
 	return
 }
