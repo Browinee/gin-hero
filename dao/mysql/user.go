@@ -41,7 +41,7 @@ func encryptPassword(oPwd string) string {
 }
 
 func Login(user *models.User) (err error) {
-	passwordFromUser := user.Password
+
 	sqlStr := `select user_id, username, password from user where username=?`
 	userFromDB := new(models.User)
 	err = db.Get(userFromDB, sqlStr, user.Username)
@@ -53,6 +53,7 @@ func Login(user *models.User) (err error) {
 		// NOTE: database got err when searching
 		return err
 	}
+	passwordFromUser := user.Password
 	password := encryptPassword(passwordFromUser)
 	if password != userFromDB.Password {
 		return errors.New("Incorrect username or password")

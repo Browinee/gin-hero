@@ -16,7 +16,7 @@ import (
 
 var trans ut.Translator
 
-// NOTE: local can be retrieved from header "Accept-Language"
+// NOTE: locale can be retrieved from header "Accept-Language"
 func InitTrans(locale string) (err error) {
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		// NOTE: use json key instead of entity key
