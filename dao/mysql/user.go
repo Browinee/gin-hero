@@ -2,10 +2,13 @@ package mysql
 
 import (
 	"crypto/md5"
+	"database/sql"
 	"encoding/hex"
 	"errors"
 	"fmt"
 	"master-gin/models"
+
+	"go.uber.org/zap"
 )
 
 func CheckUserExist(username string) (err error) {
@@ -35,4 +38,24 @@ func encryptPassword(oPwd string) string {
 	h := md5.New()
 	h.Write([]byte(secret))
 	return hex.EncodeToString(h.Sum([]byte(oPwd)))
+}
+
+func Login(user *models.User) (err error) {
+	passwordFromUser := user.Password
+	sqlStr := `select user_id, username, password from user where username=?`
+	userFromDB := new(models.User)
+	err = db.Get(userFromDB, sqlStr, user.Username)
+	if err == sql.ErrNoRows {
+		zap.L().Error("user is not existed. ", zap.Error(err))
+		return errors.New("Incorrect username or password")
+	}
+	if err != nil {
+		// NOTE: database got err when searching
+		return err
+	}
+	password := encryptPassword(passwordFromUser)
+	if password != userFromDB.Password {
+		return errors.New("Incorrect username or password")
+	}
+	return
 }
