@@ -45,25 +45,25 @@ func encryptPassword(oPwd string) string {
 	return hex.EncodeToString(h.Sum([]byte(oPwd)))
 }
 
-func Login(user *models.User) (err error) {
+func Login(user *models.User) (userEntity *models.User, err error) {
 
 	sqlStr := `select user_id, username, password from user where username=?`
 	userFromDB := new(models.User)
 	err = db.Get(userFromDB, sqlStr, user.Username)
 	if err == sql.ErrNoRows {
 		zap.L().Error("user is not existed. ", zap.Error(err))
-		return ErrorIncorrectUsernameOrPassword
+		return nil, ErrorIncorrectUsernameOrPassword
 
 	}
 	if err != nil {
 		// NOTE: database got err when searching
-		return err
+		return nil, err
 	}
 	passwordFromUser := user.Password
 	password := encryptPassword(passwordFromUser)
 	if password != userFromDB.Password {
 		zap.L().Error("incorrect password", zap.Error(err))
-		return ErrorIncorrectUsernameOrPassword
+		return nil, ErrorIncorrectUsernameOrPassword
 	}
-	return
+	return userFromDB, nil
 }

@@ -54,16 +54,14 @@ func LoginHandler(c *gin.Context) {
 		return
 
 	}
-
-	if err := service.Login(p); err != nil {
+	token, err := service.Login(p)
+	if err != nil {
 		zap.L().Error("service.login failed", zap.String("username", p.Username), zap.Error(err))
 		c.JSON(http.StatusOK, gin.H{
 			"msg": "Incorrect username or password.",
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"msg": "Login success",
-	})
+	ResponseSuccess(c, token)
 	return
 }

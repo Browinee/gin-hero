@@ -3,6 +3,7 @@ package router
 import (
 	"master-gin/controllers"
 	"master-gin/logger"
+	"master-gin/middlewares"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -14,7 +15,7 @@ func Setup() *gin.Engine {
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "ok")
 	})
-	r.GET("/ping", func(c *gin.Context) {
+	r.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
 
