@@ -9,8 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const ContextUserID = "userID"
-
 func JWTAuthMiddleware() func(c *gin.Context) {
 
 	return func(c *gin.Context) {
@@ -32,7 +30,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 			c.Abort()
 			return
 		}
-		c.Set(ContextUserID, mc.UserID)
+		c.Set(controllers.ContextUserID, mc.UserID)
 		c.Next()
 	}
 }
