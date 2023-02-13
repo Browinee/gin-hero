@@ -421,3 +421,28 @@
 {"level":"DEBUG","time":"2023-02-12T19:11:53.485+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
 {"level":"INFO","time":"2023-02-12T19:12:00.449+0800","caller":"logger/logger.go:72","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.020827541}
 {"level":"INFO","time":"2023-02-12T19:12:00.788+0800","caller":"logger/logger.go:72","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.004176125}
+{"level":"INFO","time":"2023-02-13T20:33:48.430+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:33:48.434+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-13T20:33:51.893+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-13T20:34:23.796+0800","caller":"logger/logger.go:72","msg":"/api/v1/community","status":200,"method":"GET","path":"/api/v1/community","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.003247666}
+{"level":"INFO","time":"2023-02-13T20:34:42.411+0800","caller":"logger/logger.go:72","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.000289375}
+{"level":"INFO","time":"2023-02-13T20:35:30.784+0800","caller":"logger/logger.go:72","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.000062833}
+{"level":"INFO","time":"2023-02-13T20:36:20.916+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:36:20.918+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-13T20:36:27.034+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-13T20:36:30.546+0800","caller":"logger/logger.go:72","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.000277458}
+{"level":"INFO","time":"2023-02-13T20:37:03.856+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.030131709}
+{"level":"INFO","time":"2023-02-13T20:37:16.605+0800","caller":"logger/logger.go:72","msg":"/api/v1/community","status":200,"method":"GET","path":"/api/v1/community","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.011380958}
+{"level":"INFO","time":"2023-02-13T20:38:33.070+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:38:33.073+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-13T20:38:35.185+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-13T20:38:37.705+0800","caller":"logger/logger.go:72","msg":"/api/v1/community","status":200,"method":"GET","path":"/api/v1/community","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.022184666}
+{"level":"INFO","time":"2023-02-13T20:39:17.600+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:39:17.601+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-13T20:39:19.683+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-13T20:39:23.471+0800","caller":"logger/logger.go:72","msg":"/api/v1/community","status":200,"method":"GET","path":"/api/v1/community","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.0","errors":"","cost":0.026757709}
+{"level":"INFO","time":"2023-02-13T20:41:55.229+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:41:55.231+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-13T20:41:57.704+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-13T20:43:51.575+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-13T20:43:51.578+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
