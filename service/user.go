@@ -32,5 +32,5 @@ func Login(p *models.ParamLogin) (token string, err error) {
 	if err != nil {
 		return "", err
 	}
-	return jwt.GenToken(userEntity.UserID, userEntity.Username)
+	return jwt.GenToken(userEntity.UserID)
 }
