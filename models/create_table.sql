@@ -35,5 +35,19 @@ INSERT INTO `community` VALUES ('4', '4', 'LOL', 'welcome to AOC 2', '2016-01-01
 
 
 
-
-
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE `post` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) NOT NULL COMMENT 'Post ID',
+  `title` varchar(128) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Title',
+  `content` varchar(8192) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Content',
+  `author_id` bigint(20) NOT NULL COMMENT 'Author ID',
+  `community_id` bigint(20) NOT NULL COMMENT 'Community',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT 'Post status',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Creation time',
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Update time',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_post_id` (`post_id`),
+  KEY `idx_author_id` (`author_id`),
+  KEY `idx_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
