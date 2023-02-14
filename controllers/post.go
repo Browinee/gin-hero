@@ -4,6 +4,7 @@ import (
 	"master-gin/models"
 	"master-gin/service"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -32,4 +33,23 @@ func CreatePostHandler(c *gin.Context) {
 	}
 
 	ResponseSuccess(c, nil)
+}
+
+func GetPostDetailHandler(c *gin.Context) {
+	idStr := c.Param("id")
+	id, err := strconv.ParseInt(idStr, 10, 64)
+
+	if err != nil {
+		zap.L().Error("get post detail with invalid param", zap.Error(err))
+		ResponseError(c, http.StatusOK, CodeInvalidParam)
+		return
+	}
+	data, err := service.GetPostById(id)
+	if err != nil {
+		zap.L().Error("service.GetPostDetailHandler error", zap.Error(err))
+		ResponseError(c, http.StatusOK, CodeServerBusy)
+		return
+	}
+
+	ResponseSuccess(c, data)
 }
