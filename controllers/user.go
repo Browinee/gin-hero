@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"master-gin/models"
 	"master-gin/service"
 	"net/http"
@@ -55,7 +54,6 @@ func LoginHandler(c *gin.Context) {
 		return
 
 	}
-	fmt.Println("123")
 	token, err := service.Login(p)
 	if err != nil {
 		zap.L().Error("service.login failed", zap.String("username", p.Username), zap.Error(err))
@@ -64,7 +62,6 @@ func LoginHandler(c *gin.Context) {
 		})
 		return
 	}
-	fmt.Println("token", token)
 	ResponseSuccess(c, token)
 	return
 }
