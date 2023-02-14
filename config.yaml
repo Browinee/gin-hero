@@ -24,3 +24,5 @@ redis:
   db: 0
   password: ""
   pool_size: 100
+auth:
+  jwt_expire: 24 * 365

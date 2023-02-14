@@ -19,8 +19,12 @@ type AppConfig struct {
 	*LogConfig   `mapstructure:"log"`
 	*MySQLConfig `mapstructure:"mysql"`
 	*RedisConfig `mapstructure:"redis"`
+	*AuthConfig  `mapstructure:"auth"`
 }
 
+type AuthConfig struct {
+	JwtExpire int `mapstructure:"jwt_expire"`
+}
 type LogConfig struct {
 	Level      string `mapstructure:"level"`
 	Filename   string `mapstructure:"filename"`
