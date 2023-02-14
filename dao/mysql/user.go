@@ -4,16 +4,10 @@ import (
 	"crypto/md5"
 	"database/sql"
 	"encoding/hex"
-	"errors"
 	"fmt"
 	"master-gin/models"
 
 	"go.uber.org/zap"
-)
-
-var (
-	ErrorUserExist                   = errors.New("user existed")
-	ErrorIncorrectUsernameOrPassword = errors.New("Incorrect username or password")
 )
 
 func CheckUserExist(username string) (err error) {

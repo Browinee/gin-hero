@@ -446,3 +446,12 @@
 {"level":"DEBUG","time":"2023-02-13T20:41:57.704+0800","caller":"gin-hero/main.go:35","msg":"logger init success!"}
 {"level":"INFO","time":"2023-02-13T20:43:51.575+0800","caller":"gin-hero/main.go:81","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-02-13T20:43:51.578+0800","caller":"gin-hero/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-14T14:29:49.479+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-14T14:30:28.954+0800","caller":"mysql/user.go:48","msg":"user is not existed. ","error":"sql: no rows in result set"}
+{"level":"ERROR","time":"2023-02-14T14:30:28.954+0800","caller":"controllers/user.go:61","msg":"service.login failed","username":"Jtest2","error":"Incorrect username or password"}
+{"level":"INFO","time":"2023-02-14T14:30:28.955+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.102129625}
+{"level":"ERROR","time":"2023-02-14T14:31:34.321+0800","caller":"controllers/user.go:18","msg":"Signup with invalid param","error":"Key: 'ParamSigUup.re_password' Error:Field validation for 're_password' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-02-14T14:31:34.322+0800","caller":"logger/logger.go:72","msg":"/api/v1/signup","status":200,"method":"POST","path":"/api/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.001433416}
+{"level":"INFO","time":"2023-02-14T14:31:44.851+0800","caller":"logger/logger.go:72","msg":"/api/v1/signup","status":200,"method":"POST","path":"/api/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.058167167}
+{"level":"INFO","time":"2023-02-14T14:32:12.921+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0402}
+{"level":"INFO","time":"2023-02-14T14:32:51.075+0800","caller":"logger/logger.go:72","msg":"/api/v1/community/1","status":200,"method":"GET","path":"/api/v1/community/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.021667875}

@@ -5,6 +5,10 @@ import (
 	"master-gin/models"
 )
 
-func GetCommunicityList() ([]*models.Community, error) {
+func GetCommunityList() ([]*models.Community, error) {
 	return mysql.GetCommunityList()
+}
+
+func GetCommunityDetail(id int64) (*models.CommunityDetail, error) {
+	return mysql.GetCommunityDetailByID(id)
 }
