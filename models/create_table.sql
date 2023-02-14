@@ -37,7 +37,6 @@ INSERT INTO `community` VALUES ('4', '4', 'LOL', 'welcome to AOC 2', '2016-01-01
 
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) NOT NULL COMMENT 'Post ID',
   `title` varchar(128) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Title',
   `content` varchar(8192) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Content',
