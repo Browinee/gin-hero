@@ -26,8 +26,9 @@ func Setup() *gin.Engine {
 	{
 		v1.GET("/community", controllers.CommunityHandler)
 		v1.GET("/community/:id", controllers.CommunityDetailHandler)
-		v1.POST("/post", controllers.CreatePostHandler)
-		v1.GET("/post/:id", controllers.GetPostDetailHandler)
+		v1.POST("/posts", controllers.CreatePostHandler)
+		v1.GET("/posts/", controllers.GetPostListHandler)
+		v1.GET("/posts/:id", controllers.GetPostDetailHandler)
 	}
 
 	r.NoRoute(func(c *gin.Context) {

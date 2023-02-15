@@ -53,3 +53,15 @@ func GetPostDetailHandler(c *gin.Context) {
 
 	ResponseSuccess(c, data)
 }
+
+func GetPostListHandler(c *gin.Context) {
+	offset, limit := getPageInfo(c)
+	data, err := service.GetPostList(offset, limit)
+	if err != nil {
+		zap.L().Error("service.GetPostListHandler error", zap.Error(err))
+		ResponseError(c, http.StatusOK, CodeServerBusy)
+		return
+	}
+
+	ResponseSuccess(c, data)
+}
