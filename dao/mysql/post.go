@@ -11,10 +11,9 @@ func CreatePost(p *models.Post) (err error) {
 	return
 }
 
-func GetPostById(postID int64) (post *models.Post, err error) {
+func GetPostByID(postID int64) (post *models.Post, err error) {
 	post = new(models.Post)
-	sqlStr := `
-		select post_id, title, content, author_id, community_id., create_time
+	sqlStr := `select post_id, title, content, author_id, community_id, create_time
 		from post
 		where post_id = ?
 	`

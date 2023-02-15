@@ -455,3 +455,48 @@
 {"level":"INFO","time":"2023-02-14T14:31:44.851+0800","caller":"logger/logger.go:72","msg":"/api/v1/signup","status":200,"method":"POST","path":"/api/v1/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.058167167}
 {"level":"INFO","time":"2023-02-14T14:32:12.921+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0402}
 {"level":"INFO","time":"2023-02-14T14:32:51.075+0800","caller":"logger/logger.go:72","msg":"/api/v1/community/1","status":200,"method":"GET","path":"/api/v1/community/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.021667875}
+{"level":"INFO","time":"2023-02-15T10:31:27.328+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.001152791}
+{"level":"DEBUG","time":"2023-02-15T10:31:41.131+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-15T10:31:45.330+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T10:31:45.345+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T10:31:46.844+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-15T10:31:51.421+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000082416}
+{"level":"INFO","time":"2023-02-15T10:31:57.804+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.058498709}
+{"level":"DEBUG","time":"2023-02-15T10:32:23.109+0800","caller":"controllers/post.go:17","msg":"c.ShouldBindJSON error","err":"json: cannot unmarshal string into Go struct field Post.author_id of type int64"}
+{"level":"ERROR","time":"2023-02-15T10:32:23.110+0800","caller":"controllers/post.go:18","msg":"create post with invalid param"}
+{"level":"INFO","time":"2023-02-15T10:32:23.110+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000618333}
+{"level":"DEBUG","time":"2023-02-15T10:32:51.261+0800","caller":"controllers/post.go:17","msg":"c.ShouldBindJSON error","err":"json: cannot unmarshal string into Go struct field Post.community_id of type int64"}
+{"level":"ERROR","time":"2023-02-15T10:32:51.279+0800","caller":"controllers/post.go:18","msg":"create post with invalid param"}
+{"level":"INFO","time":"2023-02-15T10:32:51.279+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.018366625}
+{"level":"INFO","time":"2023-02-15T10:33:11.707+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.082959709}
+{"level":"INFO","time":"2023-02-15T10:34:18.093+0800","caller":"logger/logger.go:72","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.023492916}
+{"level":"ERROR","time":"2023-02-15T10:34:56.203+0800","caller":"controllers/post.go:49","msg":"service.GetPostDetailHandler error","error":"Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', create_time\n\t\tfrom post\n\t\twhere post_id = ?' at line 1"}
+{"level":"INFO","time":"2023-02-15T10:34:56.204+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/16346006434091008","status":200,"method":"GET","path":"/api/v1/post/16346006434091008","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.01844}
+{"level":"ERROR","time":"2023-02-15T10:35:17.551+0800","caller":"controllers/post.go:49","msg":"service.GetPostDetailHandler error","error":"Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', create_time\n\t\tfrom post\n\t\twhere post_id = ?' at line 1"}
+{"level":"INFO","time":"2023-02-15T10:35:17.552+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/1","status":200,"method":"GET","path":"/api/v1/post/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.010410125}
+{"level":"INFO","time":"2023-02-15T10:35:57.333+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T10:35:57.338+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T10:35:59.118+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-15T10:36:00.976+0800","caller":"controllers/post.go:49","msg":"service.GetPostDetailHandler error","error":"Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', create_time\n\t\tfrom post\n\t\twhere post_id = ?' at line 1"}
+{"level":"INFO","time":"2023-02-15T10:36:00.976+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/1","status":200,"method":"GET","path":"/api/v1/post/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.007369042}
+{"level":"INFO","time":"2023-02-15T10:36:14.638+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T10:36:14.638+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T10:36:16.326+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"ERROR","time":"2023-02-15T10:36:17.812+0800","caller":"controllers/post.go:49","msg":"service.GetPostDetailHandler error","error":"sql: no rows in result set"}
+{"level":"INFO","time":"2023-02-15T10:36:17.812+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/1","status":200,"method":"GET","path":"/api/v1/post/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.011996709}
+{"level":"ERROR","time":"2023-02-15T10:36:20.430+0800","caller":"controllers/post.go:49","msg":"service.GetPostDetailHandler error","error":"sql: no rows in result set"}
+{"level":"INFO","time":"2023-02-15T10:36:20.430+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/1","status":200,"method":"GET","path":"/api/v1/post/1","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.005914584}
+{"level":"INFO","time":"2023-02-15T10:36:29.896+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/16346006434091008","status":200,"method":"GET","path":"/api/v1/post/16346006434091008","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.006331792}
+{"level":"INFO","time":"2023-02-15T16:13:11.815+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T16:13:11.830+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T16:13:19.080+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-15T16:13:22.740+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/16346006434091008","status":200,"method":"GET","path":"/api/v1/post/16346006434091008","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000423834}
+{"level":"INFO","time":"2023-02-15T16:13:31.777+0800","caller":"logger/logger.go:72","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.050435792}
+{"level":"INFO","time":"2023-02-15T16:13:39.870+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/16346006434091008","status":200,"method":"GET","path":"/api/v1/post/16346006434091008","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.03757675}
+{"level":"INFO","time":"2023-02-15T16:15:49.011+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T16:15:49.012+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T16:15:50.978+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-15T16:17:39.535+0800","caller":"master-gin/main.go:81","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-02-15T16:17:39.536+0800","caller":"master-gin/main.go:88","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-02-15T16:17:41.401+0800","caller":"master-gin/main.go:35","msg":"logger init success!"}
+{"level":"INFO","time":"2023-02-15T16:17:51.328+0800","caller":"logger/logger.go:72","msg":"/api/v1/post/16346006434091008","status":200,"method":"GET","path":"/api/v1/post/16346006434091008","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.024240917}

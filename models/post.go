@@ -11,3 +11,9 @@ type Post struct {
 	Content     string    `json:"content" db:"content" binding:"required"`
 	CreateTime  time.Time `json:"-" db:"create_time"`
 }
+
+type ApiPostDetail struct {
+	AuthorName string `json:"author_name"`
+	*Post
+	*CommunityDetail `json:"community"`
+}

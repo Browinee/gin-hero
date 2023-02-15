@@ -61,3 +61,10 @@ func Login(user *models.User) (userEntity *models.User, err error) {
 	}
 	return userFromDB, nil
 }
+
+func GetUserByID(userID int64) (user *models.User, err error) {
+	user = new(models.User)
+	sqlStr := `select user_id, username from user where user_id=?`
+	err = db.Get(user, sqlStr, userID)
+	return
+}
