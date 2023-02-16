@@ -34,6 +34,10 @@ func PostVoteController(c *gin.Context) {
 		ResponseErrorWithMsg(c, http.StatusOK, CodeInvalidParam, errData)
 		return
 	}
-	service.PostVote()
+	if err := service.VoteForPost(userID, p); err != nil {
+
+		ResponseError(c, http.StatusOK, CodeServerBusy)
+		return
+	}
 	ResponseSuccess(c, nil)
 }

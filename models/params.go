@@ -10,3 +10,11 @@ type ParamLogin struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }
+
+type ParamVoteData struct {
+	// NOTE: get user_id from request
+	//UserID
+	PostID string `json:"post_id" binding:"required"`
+	// NOTE: 1 : approval, 0: cancel, -1: against
+	Direction int8 `json:"direction,string" binding:"oneof=1 0 -1"`
+}

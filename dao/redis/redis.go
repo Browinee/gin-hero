@@ -8,21 +8,29 @@ import (
 	"github.com/spf13/viper"
 )
 
-var rdb *redis.Client
+var (
+	client *redis.Client
+	Nil    = redis.Nil
+)
 
 func Init(cfg *settings.RedisConfig) (err error) {
-	rdb = redis.NewClient(&redis.Options{
-		Addr:     fmt.Sprintf("%s:%d", viper.GetString("redis.host"), viper.GetInt("redis.Port")),
-		Password: viper.GetString("redis.password"),
-		DB:       viper.GetInt("redis.db"),
-		PoolSize: viper.GetInt("redis.pool_size"),
+	client = redis.NewClient(&redis.Options{
+		Addr:         fmt.Sprintf("%s:%d", viper.GetString("redis.host"), viper.GetInt("redis.Port")),
+		Password:     cfg.Password,
+		DB:           cfg.DB,
+		PoolSize:     cfg.PoolSize,
+		MinIdleConns: cfg.MinIdleConns,
 	})
 
-	_, err = rdb.Ping().Result()
+	_, err = client.Ping().Result()
+	if err != nil {
+
+	}
+	return nil
 
 	return err
 }
 
 func Close() {
-	_ = rdb.Close()
+	_ = client.Close()
 }
