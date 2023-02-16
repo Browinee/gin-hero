@@ -21,6 +21,7 @@ func InitTrans(locale string) (err error) {
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		// NOTE: use json key instead of entity key
 		v.RegisterTagNameFunc(func(fld reflect.StructField) string {
+			fmt.Printf("INitTrans %v", fld)
 			name := strings.SplitN(fld.Tag.Get("json"), ",", 2)[0]
 			if name == "-" {
 				return ""
