@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"master-gin/models"
 	"master-gin/service"
 	"net/http"
 
@@ -18,7 +19,7 @@ type VoteData struct {
 }
 
 func PostVoteController(c *gin.Context) {
-	p := new(VoteData)
+	p := new(models.ParamVoteData)
 	if err := c.ShouldBindJSON(p); err != nil {
 		// NOTE: reference https://tw511.com/a/01/14663.html
 		// There are three kinds of errors
@@ -34,8 +35,12 @@ func PostVoteController(c *gin.Context) {
 		ResponseErrorWithMsg(c, http.StatusOK, CodeInvalidParam, errData)
 		return
 	}
+	userID, err := getCurrentUserID(c)
+	if err != nil {
+		ResponseError(c, http.StatusUnauthorized, CodeNeedLogin)
+		return
+	}
 	if err := service.VoteForPost(userID, p); err != nil {
-
 		ResponseError(c, http.StatusOK, CodeServerBusy)
 		return
 	}
