@@ -6,6 +6,7 @@ import (
 	"log"
 	"master-gin/controllers"
 	"master-gin/dao/mysql"
+	"master-gin/dao/redis"
 
 	// "master-gin/dao/redis"
 	"master-gin/logger"
@@ -39,10 +40,10 @@ func main() {
 	}
 	defer mysql.Close()
 
-	// if err := redis.Init(settings.Conf.RedisConfig); err != nil {
-	// 	fmt.Printf("init redis failed, err %v\n", err)
-	// }
-	// defer redis.Close()
+	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
+		fmt.Printf("init redis failed, err %v\n", err)
+	}
+	defer redis.Close()
 
 	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
 		fmt.Printf("init snowflake failed, err:%v\n", err)

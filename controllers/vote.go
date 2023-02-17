@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"master-gin/models"
 	"master-gin/service"
 	"net/http"
@@ -29,8 +28,6 @@ func PostVoteController(c *gin.Context) {
 			ResponseError(c, http.StatusOK, CodeInvalidParam)
 			return
 		}
-		fmt.Printf("err %+v\n", errs.Translate(trans))
-		fmt.Printf("err trans %+v\n", errs)
 		errData := removeTopStruct(errs.Translate(trans))
 		ResponseErrorWithMsg(c, http.StatusOK, CodeInvalidParam, errData)
 		return

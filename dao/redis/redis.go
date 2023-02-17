@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
+	"go.uber.org/zap"
 )
 
 var (
@@ -24,10 +25,9 @@ func Init(cfg *settings.RedisConfig) (err error) {
 
 	_, err = client.Ping().Result()
 	if err != nil {
-
+		zap.L().Error("connect redis failed, err %v/n", zap.Error(err))
+		return
 	}
-	return nil
-
 	return err
 }
 

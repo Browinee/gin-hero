@@ -15,7 +15,7 @@ const (
 )
 
 var (
-	ErrorVoteTimeExpire = errors.New("Vote time is already over.")
+	ErrorVoteTimeExpire = errors.New("vote time is already over")
 )
 
 // NOTE: user float64  to calculate score

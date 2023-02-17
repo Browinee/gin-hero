@@ -18,6 +18,7 @@ func Init(cfg *settings.MySQLConfig) (err error) {
 
 	if err != nil {
 		zap.L().Error("connect DB failed, err %v/n", zap.Error(err))
+		return
 	}
 
 	db.SetMaxOpenConns(cfg.MaxOpenConns)
