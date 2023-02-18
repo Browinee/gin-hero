@@ -67,7 +67,6 @@ func Init() (err error) {
 		fmt.Printf("viper.Unmarshal failed, err:%v\n", err)
 	}
 
-	fmt.Printf("config %+v\n", Conf.MySQLConfig)
 	viper.WatchConfig()
 
 	viper.OnConfigChange(func(in fsnotify.Event) {

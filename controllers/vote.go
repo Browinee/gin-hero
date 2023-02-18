@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
+	"go.uber.org/zap"
 )
 
 type VoteData struct {
@@ -38,6 +39,7 @@ func PostVoteController(c *gin.Context) {
 		return
 	}
 	if err := service.VoteForPost(userID, p); err != nil {
+		zap.L().Error("service.VoteForPost", zap.Error(err))
 		ResponseError(c, http.StatusOK, CodeServerBusy)
 		return
 	}

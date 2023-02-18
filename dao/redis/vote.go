@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
+	"go.uber.org/zap"
 )
 
 const (
@@ -25,6 +26,7 @@ func VoteForPost(userID, postID string, value float64) error {
 	postTime := client.ZScore(getRedisKey(KeyPostTimeZSet), postID).Val()
 
 	if float64(time.Now().Unix())-postTime > oneWeekInSeconds {
+		zap.L().Error(" service.VoteForPost time expire", zap.Error(ErrorVoteTimeExpire))
 		return ErrorVoteTimeExpire
 	}
 
@@ -37,20 +39,35 @@ func VoteForPost(userID, postID string, value float64) error {
 		dir = -1
 	}
 	diff := math.Abs(oldValue - value)
-	_, err := client.ZIncrBy(getRedisKey(KeyPostScoreZSet), dir*diff*VoteScore, postID).Result()
 
-	if err != nil {
-		return err
-	}
+	pipeline := client.TxPipeline()
+	pipeline.ZIncrBy(getRedisKey(KeyPostScoreZSet), dir*diff*VoteScore, postID)
 
 	if value == 0 {
-		_, err = client.ZRem(getRedisKey(keyPostVotedZSetPrefix + postID)).Result()
+		pipeline.ZRem(getRedisKey(keyPostVotedZSetPrefix+postID), postID)
 	} else {
-		_, err = client.ZAdd(getRedisKey(keyPostVotedZSetPrefix+postID), redis.Z{
+		pipeline.ZAdd(getRedisKey(keyPostVotedZSetPrefix+postID), redis.Z{
 			Score:  value,
 			Member: postID,
-		}).Result()
+		})
 	}
+	_, err := pipeline.Exec()
+	return err
+}
 
+func CreatePost(postID int64) error {
+	// NOTE: transaction
+	pipeline := client.TxPipeline()
+	pipeline.ZAdd(getRedisKey(KeyPostTimeZSet), redis.Z{
+		Score:  float64(time.Now().Unix()),
+		Member: postID,
+	})
+
+	pipeline.ZAdd(getRedisKey(KeyPostScoreZSet), redis.Z{
+		Score:  float64(time.Now().Unix()),
+		Member: postID,
+	})
+
+	_, err := pipeline.Exec()
 	return err
 }

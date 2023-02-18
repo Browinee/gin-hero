@@ -22,7 +22,6 @@ func Init(cfg *settings.RedisConfig) (err error) {
 		PoolSize:     cfg.PoolSize,
 		MinIdleConns: cfg.MinIdleConns,
 	})
-
 	_, err = client.Ping().Result()
 	if err != nil {
 		zap.L().Error("connect redis failed, err %v/n", zap.Error(err))
