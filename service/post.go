@@ -117,7 +117,7 @@ func GetPostList2(postList *models.ParamPostList) (data []*models.ApiPostDetail,
 	return
 }
 
-func GetCommunityPostList(p *models.ParamCommunityPostList) (data []*models.ApiPostDetail, err error) {
+func GetCommunityPostList(p *models.ParamPostList) (data []*models.ApiPostDetail, err error) {
 	ids, err := redis.GetCommunityPostIDsInOrder(p)
 	if err != nil {
 		return
@@ -160,5 +160,21 @@ func GetCommunityPostList(p *models.ParamCommunityPostList) (data []*models.ApiP
 		}
 		data = append(data, postdetail)
 	}
+	return
+}
+
+func GetPostListNew(p *models.ParamPostList) (data []*models.ApiPostDetail, err error) {
+	// NOTE: if CommunityID is not in p
+	// default value would be 0
+	if p.CommunityID == 0 {
+		data, err = GetPostList2(p)
+	} else {
+		data, err = GetCommunityPostList(p)
+	}
+	if err != nil {
+		zap.L().Error("GetpostLIstNew failed", zap.Error(err))
+		return nil, err
+	}
+
 	return
 }

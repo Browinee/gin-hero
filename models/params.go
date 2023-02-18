@@ -21,13 +21,8 @@ type ParamVoteData struct {
 
 // NOTE: get query string
 type ParamPostList struct {
+	CommunityID int64  `form:"community_id"`
 	Page        int64  `form:"page"`
 	PageSize    int64  `form:"size"`
 	Order       string `form:"order"`
-	CommunityID int64  `form:"community_id"`
-}
-
-type ParamCommunityPostList struct {
-	*ParamPostList
-	CommunityID int64 `json:"community_id" form:"community_id"`
 }
