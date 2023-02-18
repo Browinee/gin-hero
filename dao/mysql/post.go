@@ -26,7 +26,7 @@ func GetPostByID(postID int64) (post *models.Post, err error) {
 	return
 }
 
-func GetPostsByIDs(ids []string) (postList []*models.ApiPostDetail, err error) {
+func GetPostsByIDs(ids []string) (postList []*models.Post, err error) {
 	sqlStr := `select post_id, title, content, author_id, community_id, create_time
 		from post
 		where post_id in (?)

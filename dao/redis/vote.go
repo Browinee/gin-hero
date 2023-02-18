@@ -17,6 +17,7 @@ const (
 
 var (
 	ErrorVoteTimeExpire = errors.New("vote time is already over")
+	ErrorVoteRepeated   = errors.New("dont' vote the same thig again")
 )
 
 // NOTE: user float64  to calculate score
@@ -33,6 +34,11 @@ func VoteForPost(userID, postID string, value float64) error {
 
 	// NOTE: check current user's vote record
 	oldValue := client.ZScore(getRedisKey(keyPostVotedZSetPrefix+postID), userID).Val()
+
+	if oldValue == value {
+		zap.L().Error("vote the same options again")
+		return ErrorVoteRepeated
+	}
 	var dir float64
 	if value > oldValue {
 		dir = 1

@@ -85,6 +85,5 @@ func GetPostListHandler2(c *gin.Context) {
 		ResponseError(c, http.StatusOK, CodeServerBusy)
 		return
 	}
-
 	ResponseSuccess(c, data)
 }
