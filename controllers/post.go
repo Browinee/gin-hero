@@ -87,3 +87,26 @@ func GetPostListHandler2(c *gin.Context) {
 	}
 	ResponseSuccess(c, data)
 }
+
+func GetCommunityPostListHandler(c *gin.Context) {
+	p := &models.ParamCommunityPostList{
+		ParamPostList: &models.ParamPostList{
+			Page:     1,
+			PageSize: 10,
+			Order:    constants.DefaultOrderTime,
+		},
+		CommunityID: 0,
+	}
+	if err := c.ShouldBindQuery(p); err != nil {
+		zap.L().Error("GetCommunityPostListHandler with invalid params", zap.Error(err))
+		ResponseError(c, http.StatusBadRequest, CodeInvalidParam)
+		return
+	}
+	// 获取数据
+	data, err := service.GetCommunityPostList(p)
+	if err != nil {
+		ResponseError(c, http.StatusOK, CodeServerBusy)
+		return
+	}
+	ResponseSuccess(c, data)
+}

@@ -3,6 +3,7 @@ package redis
 import (
 	"errors"
 	"math"
+	"strconv"
 	"time"
 
 	"github.com/go-redis/redis"
@@ -33,7 +34,7 @@ func VoteForPost(userID, postID string, value float64) error {
 	}
 
 	// NOTE: check current user's vote record
-	oldValue := client.ZScore(getRedisKey(keyPostVotedZSetPrefix+postID), userID).Val()
+	oldValue := client.ZScore(getRedisKey(KeyPostVotedZSetPrefix+postID), userID).Val()
 
 	if oldValue == value {
 		zap.L().Error("vote the same options again")
@@ -51,9 +52,9 @@ func VoteForPost(userID, postID string, value float64) error {
 	pipeline.ZIncrBy(getRedisKey(KeyPostScoreZSet), dir*diff*VoteScore, postID)
 
 	if value == 0 {
-		pipeline.ZRem(getRedisKey(keyPostVotedZSetPrefix+postID), postID)
+		pipeline.ZRem(getRedisKey(KeyPostVotedZSetPrefix+postID), postID)
 	} else {
-		pipeline.ZAdd(getRedisKey(keyPostVotedZSetPrefix+postID), redis.Z{
+		pipeline.ZAdd(getRedisKey(KeyPostVotedZSetPrefix+postID), redis.Z{
 			Score:  value,
 			Member: postID,
 		})
@@ -62,7 +63,7 @@ func VoteForPost(userID, postID string, value float64) error {
 	return err
 }
 
-func CreatePost(postID int64) error {
+func CreatePost(postID int64, communityID int64) error {
 	// NOTE: transaction
 	pipeline := client.TxPipeline()
 	pipeline.ZAdd(getRedisKey(KeyPostTimeZSet), redis.Z{
@@ -74,7 +75,9 @@ func CreatePost(postID int64) error {
 		Score:  float64(time.Now().Unix()),
 		Member: postID,
 	})
-
+	// NOTE: add postID to community
+	communityKey := getRedisKey(KeyCommunityPostSetPrefix + strconv.Itoa(int(communityID)))
+	pipeline.SAdd(communityKey, postID)
 	_, err := pipeline.Exec()
 	return err
 }

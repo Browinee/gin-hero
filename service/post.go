@@ -17,7 +17,7 @@ func CreatePost(p *models.Post) (err error) {
 	if err != nil {
 		return nil
 	}
-	err = redis.CreatePost(p.ID)
+	err = redis.CreatePost(p.ID, p.CommunityID)
 	return
 }
 
@@ -83,9 +83,9 @@ func GetPostList2(postList *models.ParamPostList) (data []*models.ApiPostDetail,
 		return
 	}
 
-	posts, err := mysql.GetPostsByIDs(ids)
+	posts, err := mysql.GetPostListByIDs(ids)
 	if err != nil {
-		zap.L().Error("mysql.GetPostsByIDs", zap.Error(err))
+		zap.L().Error("mysql.GetPostListByIDs", zap.Error(err))
 		return
 	}
 	data = make([]*models.ApiPostDetail, 0, len(posts))
@@ -113,6 +113,52 @@ func GetPostList2(postList *models.ParamPostList) (data []*models.ApiPostDetail,
 			CommunityDetail: community,
 		}
 		data = append(data, postDetail)
+	}
+	return
+}
+
+func GetCommunityPostList(p *models.ParamCommunityPostList) (data []*models.ApiPostDetail, err error) {
+	ids, err := redis.GetCommunityPostIDsInOrder(p)
+	if err != nil {
+		return
+	}
+	if len(ids) == 0 {
+		zap.L().Warn("redis.GetCommunityPostList(p) return 0 data")
+		return
+	}
+	zap.L().Debug("GetPostList2", zap.Any("ids", ids))
+	voteData, err := redis.GetPostVoteData(ids)
+	if err != nil {
+		return
+	}
+
+	posts, err := mysql.GetPostListByIDs(ids)
+
+	if err != nil {
+		return
+	}
+	for idx, post := range posts {
+		user, err := mysql.GetUserByID(post.AuthorID)
+		if err != nil {
+			zap.L().Error("mysql.GetUserByID() failed",
+				zap.Int64("postID", post.AuthorID),
+				zap.Error(err))
+			continue
+		}
+		community, err := mysql.GetCommunityByID(post.CommunityID)
+		if err != nil {
+			zap.L().Error("mysql.GetCommunityByID() failed",
+				zap.Int64("community_id", post.CommunityID),
+				zap.Error(err))
+			continue
+		}
+		postdetail := &models.ApiPostDetail{
+			VoteNum:         voteData[idx],
+			Post:            post,
+			CommunityDetail: community,
+			AuthorName:      user.Username,
+		}
+		data = append(data, postdetail)
 	}
 	return
 }
