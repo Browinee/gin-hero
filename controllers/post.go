@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"master-gin/constants"
 	"master-gin/models"
 	"master-gin/service"
 	"net/http"
@@ -66,27 +67,21 @@ func GetPostListHandler(c *gin.Context) {
 	ResponseSuccess(c, data)
 }
 
-const (
-	defaultOrderTime  = "time"
-	defaultOrderScore = "score"
-)
-
 // NOTE: sorted by create_time and vote
 func GetPostListHandler2(c *gin.Context) {
 	p := &models.ParamPostList{
 		Page:     1,
 		PageSize: 10,
-		Order:    defaultOrderTime,
+		Order:    constants.DefaultOrderTime,
 	}
 	if err := c.ShouldBindQuery(p); err != nil {
 		zap.L().Error("GetPostListHandler2 with invalid params", zap.Error(err))
 		ResponseError(c, http.StatusBadRequest, CodeInvalidParam)
 		return
 	}
-	offset, limit := getPageInfo(c)
-	data, err := service.GetPostList(offset, limit)
+	data, err := service.GetPostList2(p)
 	if err != nil {
-		zap.L().Error("service.GetPostListHandler error", zap.Error(err))
+		zap.L().Error("service.GetPostListHandler2 error", zap.Error(err))
 		ResponseError(c, http.StatusOK, CodeServerBusy)
 		return
 	}
