@@ -23,6 +23,7 @@ var (
 func VoteForPost(userID, postID string, value float64) error {
 
 	// NOTE: check post time
+	// ex: zscore ginheropost:time postID
 	postTime := client.ZScore(getRedisKey(KeyPostTimeZSet), postID).Val()
 
 	if float64(time.Now().Unix())-postTime > oneWeekInSeconds {

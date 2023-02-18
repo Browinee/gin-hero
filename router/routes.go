@@ -27,7 +27,11 @@ func Setup() *gin.Engine {
 		v1.GET("/community", controllers.CommunityHandler)
 		v1.GET("/community/:id", controllers.CommunityDetailHandler)
 		v1.POST("/posts", controllers.CreatePostHandler)
+
 		v1.GET("/posts/", controllers.GetPostListHandler)
+		// NOTE: sorted
+		v1.GET("/posts2", controllers.GetPostListHandler2)
+
 		v1.GET("/posts/:id", controllers.GetPostDetailHandler)
 		v1.POST("/vote", controllers.PostVoteController)
 	}

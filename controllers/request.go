@@ -29,11 +29,9 @@ func getCurrentUserID(c *gin.Context) (userID int64, err error) {
 func getPageInfo(c *gin.Context) (offset, limit int64) {
 	offsetStr := c.Query("page")
 	limitStr := c.Query("pageSize")
-
 	var (
 		err error
 	)
-
 	offset, err = strconv.ParseInt(offsetStr, 10, 64)
 	if err != nil {
 		offset = 1

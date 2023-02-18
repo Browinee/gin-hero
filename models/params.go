@@ -18,3 +18,11 @@ type ParamVoteData struct {
 	// NOTE: 1 : approval, 0: cancel, -1: against
 	Direction int8 `json:"direction,string" binding:"oneof=1 0 -1"`
 }
+
+// NOTE: get query string
+type ParamPostList struct {
+	Page        int64  `form:"page"`
+	PageSize    int64  `form:"size"`
+	Order       string `form:"order"`
+	CommunityID int64  `form:"community_id"`
+}

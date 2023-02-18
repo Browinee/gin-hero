@@ -16,7 +16,7 @@ func CreatePostHandler(c *gin.Context) {
 	if err := c.ShouldBindJSON(p); err != nil {
 		zap.L().Debug("c.ShouldBindJSON error", zap.Any("err", err))
 		zap.L().Error("create post with invalid param")
-		ResponseError(c, http.StatusOK, CodeInvalidParam)
+		ResponseError(c, http.StatusBadRequest, CodeInvalidParam)
 		return
 	}
 
@@ -41,7 +41,7 @@ func GetPostDetailHandler(c *gin.Context) {
 
 	if err != nil {
 		zap.L().Error("get post detail with invalid param", zap.Error(err))
-		ResponseError(c, http.StatusOK, CodeInvalidParam)
+		ResponseError(c, http.StatusBadRequest, CodeInvalidParam)
 		return
 	}
 	data, err := service.GetPostById(id)
@@ -55,6 +55,34 @@ func GetPostDetailHandler(c *gin.Context) {
 }
 
 func GetPostListHandler(c *gin.Context) {
+	offset, limit := getPageInfo(c)
+	data, err := service.GetPostList(offset, limit)
+	if err != nil {
+		zap.L().Error("service.GetPostListHandler error", zap.Error(err))
+		ResponseError(c, http.StatusOK, CodeServerBusy)
+		return
+	}
+
+	ResponseSuccess(c, data)
+}
+
+const (
+	defaultOrderTime  = "time"
+	defaultOrderScore = "score"
+)
+
+// NOTE: sorted by create_time and vote
+func GetPostListHandler2(c *gin.Context) {
+	p := &models.ParamPostList{
+		Page:     1,
+		PageSize: 10,
+		Order:    defaultOrderTime,
+	}
+	if err := c.ShouldBindQuery(p); err != nil {
+		zap.L().Error("GetPostListHandler2 with invalid params", zap.Error(err))
+		ResponseError(c, http.StatusBadRequest, CodeInvalidParam)
+		return
+	}
 	offset, limit := getPageInfo(c)
 	data, err := service.GetPostList(offset, limit)
 	if err != nil {
